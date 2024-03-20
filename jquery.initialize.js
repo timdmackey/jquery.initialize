@@ -73,10 +73,10 @@
         // called once per element.
         var seen = [];
         var callbackOnce = function () {
-            if (seen.indexOf(this) == -1) {
-                seen.push(this);
+            // if (seen.indexOf(this) == -1) {
+            //    seen.push(this);
                 $(this).each(callback);
-            }
+            // }
         };
 
         // See if the selector matches any elements already on the page.
