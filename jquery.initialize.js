@@ -70,13 +70,21 @@
     msobservers.initialize = function (selector, callback, options) {
 
         // Wrap the callback so that we can ensure that it is only
-        // called once per element.
+        // called once per element within the reset window.
         var seen = [];
+        var resetWindow = 1000;
         var callbackOnce = function () {
-            // if (seen.indexOf(this) == -1) {
-            //    seen.push(this);
+            if (seen.indexOf(this) == -1) {
+                seen.push(this);
+                // remove 
+                setTimeout(() => {
+                    const index = seen.indexOf(this);
+                    if (index > -1) {
+                      array.splice(index, 1);
+                    }
+                }, resetWindow);
                 $(this).each(callback);
-            // }
+            }
         };
 
         // See if the selector matches any elements already on the page.
