@@ -80,7 +80,7 @@
                 setTimeout(() => {
                     const index = seen.indexOf(this);
                     if (index > -1) {
-                      array.splice(index, 1);
+                      seen.splice(index, 1);
                     }
                 }, resetWindow);
                 $(this).each(callback);
